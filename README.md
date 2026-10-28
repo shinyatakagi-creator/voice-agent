@@ -58,6 +58,8 @@ Details are in `docs/writeup.md`.
 ## What it cannot do
 Production telephony, SIP trunking, scaling, call streaming, or real customer data. Tickets are fake.
 
+No authentication, no Twilio request-signature check and no rate limiting on /ws, /voice and /gather. It is a local demo behind a temporary tunnel, not safe to leave exposed.
+
 ## Not done yet
 - Measure speech recognition time on the server. It is not measured today.
 - Break down latency by stage (recognition, LLM, TTS, network) to diagnose slow or cut-off calls.
