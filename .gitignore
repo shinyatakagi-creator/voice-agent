@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+logs/
+*.log
+*.wav
+*.mp3
+*.png
+*.jpg
+.DS_Store

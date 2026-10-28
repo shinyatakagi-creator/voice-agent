@@ -1,0 +1,39 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Voice agent</title>
+<button id="mic">Hold to talk</button>
+<input id="txt" placeholder="or type here" size="40"> <button id="send">Send</button>
+<pre id="log"></pre>
+<script>
+const log = document.getElementById("log");
+const ws = new WebSocket(`ws://${location.host}/ws`);
+ws.binaryType = "blob";
+const Rec = window.SpeechRecognition || window.webkitSpeechRecognition;
+const rec = new Rec();
+rec.lang = "en-AU";
+rec.interimResults = false;
+
+function add(who, text) { log.textContent += `${who}: ${text}\n`; }
+function send(text) { add("You", text); ws.send(text); }
+
+rec.onresult = (e) => send(e.results[0][0].transcript);
+rec.onerror = (e) => add("error", e.error);
+
+ws.onmessage = (e) => {
+  if (typeof e.data === "string") {
+    const msg = JSON.parse(e.data);
+    if (msg.type === "text") add("Agent", msg.text);
+    if (msg.type === "tts_error" || !msg.audio) speechSynthesis.speak(new SpeechSynthesisUtterance(msg.text));
+  } else {
+    new Audio(URL.createObjectURL(new Blob([e.data], {type: "audio/mpeg"}))).play();
+  }
+};
+ws.onclose = () => add("system", "socket closed");
+
+const btn = document.getElementById("mic");
+btn.onmousedown = () => rec.start();
+btn.onmouseup = () => rec.stop();
+document.getElementById("send").onclick = () => {
+  const t = document.getElementById("txt"); if (t.value) { send(t.value); t.value = ""; }
+};
+</script>

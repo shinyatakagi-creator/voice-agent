@@ -1,0 +1,12 @@
+{
+  "1042": {"status": "open", "summary": "Backup job fails with error 504", "updated": "2026-10-01", "assignee": "Priya"},
+  "1043": {"status": "resolved", "summary": "Cannot reset password", "updated": "2026-09-28", "assignee": "Sam"},
+  "1044": {"status": "waiting_on_customer", "summary": "Restore is slow on large folders", "updated": "2026-10-02", "assignee": "Priya"},
+  "1045": {"status": "escalated", "summary": "Data missing after restore to new laptop", "updated": "2026-10-03", "assignee": "Marcus"},
+  "1046": {"status": "open", "summary": "Backup schedule ignores timezone", "updated": "2026-10-02", "assignee": "Sam"},
+  "1047": {"status": "resolved", "summary": "Invoice shows wrong storage tier", "updated": "2026-09-30", "assignee": "Lena"},
+  "1048": {"status": "waiting_on_customer", "summary": "Desktop app crashes on startup", "updated": "2026-10-04", "assignee": "Marcus"},
+  "1049": {"status": "escalated", "summary": "Encryption key recovery request", "updated": "2026-10-04", "assignee": "Priya"},
+  "1050": {"status": "open", "summary": "Cannot add second device to account", "updated": "2026-10-03", "assignee": "Lena"},
+  "1051": {"status": "resolved", "summary": "Email notifications not arriving", "updated": "2026-09-27", "assignee": "Sam"}
+}
